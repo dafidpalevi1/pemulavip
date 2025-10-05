@@ -172,7 +172,7 @@
             font-size: 1rem;
         }
         
-        /* Two Column Layout - FIXED FOR MOBILE */
+        /* Two Column Layout - OPTIMIZED FOR MOBILE */
         .two-columns {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -214,7 +214,7 @@
             flex-shrink: 0;
         }
         
-        /* Tips Section - FIXED FOR MOBILE */
+        /* Tips Section - OPTIMIZED FOR MOBILE WITH 2 COLUMNS */
         .tips-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -224,9 +224,12 @@
         .tips-category {
             background: linear-gradient(135deg, #f8f9fa, #e9ecef);
             border-radius: 8px;
-            padding: 1.2rem;
+            padding: 1rem;
             border-left: 4px solid var(--primary);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .tips-category:hover {
@@ -234,8 +237,31 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
         
+        .tips-category h3 {
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8px 0;
+            border-bottom: 2px solid var(--secondary);
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .tips-category h3 i {
+            margin-right: 8px;
+            font-size: 1rem;
+        }
+        
         .tips-list {
             list-style-type: none;
+            flex-grow: 1;
         }
         
         .tips-list li {
@@ -244,6 +270,7 @@
             display: flex;
             align-items: flex-start;
             font-size: 0.85rem;
+            line-height: 1.4;
         }
         
         .tips-list li:last-child {
@@ -255,11 +282,25 @@
             margin-right: 8px;
             font-size: 0.9rem;
             flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        /* Style untuk link dalam daftar tips */
+        .tips-list a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            transition: color 0.2s ease;
+        }
+        
+        .tips-list a:hover {
+            color: var(--primary);
         }
         
         .level-section {
-            margin-bottom: 1.2rem;
-            padding: 1rem;
+            margin-bottom: 1rem;
+            padding: 0.8rem;
             background-color: white;
             border-radius: 6px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -272,14 +313,19 @@
         .level-title {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 8px 12px;
+            padding: 8px 10px;
             border-radius: 6px;
             margin-bottom: 0.8rem;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            text-align: center;
+            min-height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        /* Saran Section - FIXED FOR MOBILE */
+        /* Saran Section - OPTIMIZED FOR MOBILE WITH 2 COLUMNS */
         .saran-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -294,6 +340,8 @@
             border-left: 4px solid var(--primary);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .saran-card:hover {
@@ -318,6 +366,7 @@
         .saran-card ul {
             list-style-type: none;
             margin-top: 0.8rem;
+            flex-grow: 1;
         }
         
         .saran-card li {
@@ -325,7 +374,8 @@
             border-bottom: 1px solid #ddd;
             display: flex;
             align-items: flex-start;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            line-height: 1.4;
         }
         
         .saran-card li:last-child {
@@ -338,6 +388,20 @@
             color: var(--primary);
             font-weight: bold;
             flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        /* Style untuk link dalam daftar saran */
+        .saran-card a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            transition: color 0.2s ease;
+        }
+        
+        .saran-card a:hover {
+            color: var(--primary);
         }
         
         /* CTA Section */
@@ -401,9 +465,9 @@
             color: var(--secondary);
         }
         
-        /* Responsive - FIXED FOR MOBILE WITH 2 COLUMNS */
+        /* Responsive - FIXED TO KEEP 2 COLUMNS ON MOBILE */
         @media (max-width: 768px) {
-            /* Ensure 2 columns on mobile */
+            /* Maintain 2 columns on mobile with better spacing */
             .two-columns, 
             .tips-container, 
             .saran-grid {
@@ -426,14 +490,14 @@
             .suggestion-list li, 
             .tips-list li, 
             .saran-card li {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
                 padding: 6px 0;
             }
             
             .prohibited-section h3,
             .saran-card h3,
             .level-title {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
             
             .tips-category,
@@ -445,10 +509,44 @@
                 padding: 0.8rem;
                 margin-bottom: 0.8rem;
             }
+            
+            .tips-category h3 {
+                font-size: 0.9rem;
+                margin-bottom: 0.8rem;
+                min-height: 45px;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+            }
+            
+            /* Improve navigation for mobile */
+            nav {
+                justify-content: space-between;
+                overflow-x: auto;
+                padding: 0.8rem 0;
+            }
+            
+            nav a {
+                font-size: 0.8rem;
+                white-space: nowrap;
+                margin: 0 0.3rem;
+            }
+            
+            /* FIX LEVEL-TITLE ALIGNMENT ON MOBILE */
+            .level-title {
+                min-height: 32px;
+                padding: 6px 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                line-height: 1.2;
+            }
         }
         
         @media (max-width: 480px) {
-            /* For very small screens, keep 2 columns but adjust further */
+            /* For very small screens, adjust 2 columns further */
             .two-columns, 
             .tips-container, 
             .saran-grid {
@@ -465,20 +563,48 @@
             }
             
             h2 {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
             .prohibited-list li, 
             .suggestion-list li, 
             .tips-list li, 
             .saran-card li {
-                font-size: 0.75rem;
+                font-size: 0.7rem;
+                line-height: 1.3;
             }
             
             .prohibited-section h3,
             .saran-card h3,
             .level-title {
+                font-size: 0.8rem;
+            }
+            
+            .tips-category,
+            .saran-card {
+                padding: 0.7rem;
+            }
+            
+            .level-section {
+                padding: 0.7rem;
+            }
+            
+            .tips-category h3 {
                 font-size: 0.85rem;
+                min-height: 40px;
+            }
+            
+            /* Adjust font sizes for very small screens */
+            .tips-list li::before,
+            .saran-card li::before {
+                font-size: 0.8rem;
+            }
+            
+            /* FIX LEVEL-TITLE ALIGNMENT ON VERY SMALL SCREENS */
+            .level-title {
+                min-height: 30px;
+                padding: 5px 6px;
+                font-size: 0.75rem;
             }
         }
         
@@ -514,7 +640,7 @@
             </div>
             <h1>Panduan Lengkap untuk Pemula TikTok</h1>
             <p>Selamat datang di VIP Agency! Berikut adalah panduan penting untuk memulai perjalanan TikTok Anda dengan benar dan menghindari pelanggaran platform.</p>
-            <a href="https://www.tiktok.com/t/ZMhhYfPCA/" class="btn">Bergabung Sekarang</a>
+            <a href="https://www.tiktok.com/t/ZMhhYfPCA/" class="btn">Daftar Sekarang</a>
         </div>
     </header>
     
@@ -536,23 +662,21 @@
                     <div class="prohibited-section">
                         <h3><i class="fas fa-exclamation-triangle"></i> Konten Tidak Pantas</h3>
                         <ul class="prohibited-list">
-                            <li>Konten seksual eksplisit</li>
-                            <li>Eksploitasi anak-anak</li>
-                            <li>Konten kekerasan</li>
-                            <li>Perundungan (bullying)</li>
-                            <li>Ujaran kebencian</li>
-                            <li>Diskriminasi</li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7153490898343578881">Konten seksual eksplisit</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7175367587386199297">Konten kekerasan</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7313908731153075474">Perundungan (bullying)</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7387632162767375623">Konten negatif</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7251480911873641736">Ekstrim</a></li>
                         </ul>
                     </div>
                     
                     <div class="prohibited-section">
                         <h3><i class="fas fa-gavel"></i> Konten Melanggar Hukum</h3>
                         <ul class="prohibited-list">
-                            <li>Aktivitas ilegal</li>
-                            <li>Ancaman kekerasan</li>
-                            <li>Pelanggaran hak cipta</li>
-                            <li>Penipuan atau scam</li>
-                            <li>Promosi perjudian</li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7244042090055765256">Hoax</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7169924391109741825">Pelanggaran hak cipta</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7392510377772272914">Penipuan atau scam</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7282660655952448775">Promosi perjudian</a></li>
                         </ul>
                     </div>
                 </div>
@@ -561,24 +685,20 @@
                     <div class="prohibited-section">
                         <h3><i class="fas fa-user-secret"></i> Spam & Manipulasi</h3>
                         <ul class="prohibited-list">
-                            <li>Spam komentar</li>
-                            <li>Manipulasi engagement</li>
-                            <li>Akun bot</li>
-                            <li>Penyalahgunaan hashtag</li>
-                            <li>Konten duplikat</li>
-                            <li>Impersonasi</li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7245114709509229842">Spam</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7251569938333289736">Manipulasi konten</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7280112475154943240">Konten duplikat</a></li>
                         </ul>
                     </div>
                     
                     <div class="prohibited-section">
                         <h3><i class="fas fa-eye-slash"></i> Konten Sensitif</h3>
                         <ul class="prohibited-list">
-                            <li>Merokok atau tembakau</li>
-                            <li>Alkohol berlebihan</li>
-                            <li>Penggunaan narkoba</li>
-                            <li>Benda tajam atau senjata</li>
-                            <li>Kekerasan hewan</li>
-                            <li>Anak menangis</li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7272290300540849416">Mengendara</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7277791845093100808">18+</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7143114145330695426">Merokok atau tembakau</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7226639435784391938">Pengungkapan Konten Komersial dan Pemasaran Berbayar</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7251782058643590408">Cara Report</a></li>
                         </ul>
                     </div>
                 </div>
@@ -586,54 +706,21 @@
         </section>
         
         <section id="suggestions">
-            <h2><i class="fas fa-lightbulb"></i> Saran untuk Anggota Baru</h2>
+            <h2><i class="fas fa-lightbulb"></i> Fitur Tiktok</h2>
             
             <div class="saran-grid">
                 <div class="saran-card">
-                    <h3><i class="fas fa-user-plus"></i> Persiapan Awal</h3>
+                    <h3><i class="fas fa-user-plus"></i> Fitur Solo</h3>
                     <ul>
-                        <li>Buat akun TikTok menarik</li>
-                        <li>Pilih username relevan</li>
-                        <li>Tulis bio yang jelas</li>
-                        <li>Pelajari platform 1-2 minggu</li>
-                        <li>Pahami tren populer</li>
-                        <li>Tentukan niche sesuai minat</li>
+                        <li><a href="https://www.tiktok.com/@tiktokliveid/video/7554738428424785159">Viewer Wishes</a></li>
+                        <li><a href="https://www.tiktok.com/@tiktokliveid/video/7543643983789051154">Akademi live</a></li>
                     </ul>
                 </div>
                 
                 <div class="saran-card">
-                    <h3><i class="fas fa-video"></i> Strategi Konten</h3>
+                    <h3><i class="fas fa-video"></i> Fitur Multiguest</h3>
                     <ul>
-                        <li>Fokus pada kualitas</li>
-                        <li>Gunakan wajah & suara sendiri</li>
-                        <li>Beri nilai tambah</li>
-                        <li>Ikuti tren kreatif</li>
-                        <li>Konsisten dengan niche</li>
-                        <li>Analisis kompetitor</li>
-                    </ul>
-                </div>
-                
-                <div class="saran-card">
-                    <h3><i class="fas fa-chart-line"></i> Optimasi</h3>
-                    <ul>
-                        <li>Gunakan hashtag strategis</li>
-                        <li>Buat caption menarik</li>
-                        <li>Balas komentar cepat</li>
-                        <li>Manfaatkan fitur TikTok</li>
-                        <li>Analisis performa</li>
-                        <li>Kolaborasi dengan creator</li>
-                    </ul>
-                </div>
-                
-                <div class="saran-card">
-                    <h3><i class="fas fa-broadcast-tower"></i> Live Streaming</h3>
-                    <ul>
-                        <li>Persiapkan konten matang</li>
-                        <li>Promosikan jadwal live</li>
-                        <li>Pastikan koneksi stabil</li>
-                        <li>Sapa penonton dengan nama</li>
-                        <li>Interaksi dua arah</li>
-                        <li>Durasi optimal 2-3 jam</li>
+                        <li><a href="https://www.tiktok.com/@tiktokliveid/video/7541801898911796498">Format multiguest favorit</a></li>
                     </ul>
                 </div>
             </div>
@@ -644,88 +731,42 @@
             
             <div class="tips-container">
                 <div class="tips-category">
-                    <h3 style="margin-top: 0; margin-bottom: 1rem; display: flex; align-items: center;">
-                        <i class="fas fa-video" style="margin-right: 8px;"></i> Tips Video TikTok
-                    </h3>
+                    <h3><i class="fas fa-video"></i> Tips Video TikTok</h3>
                     
                     <div class="level-section">
-                        <div class="level-title">Pemula (0-1K Followers)</div>
+                        <div class="level-title">VIDEO TIKTOK</div>
                         <ul class="tips-list">
-                            <li>Pelajari editing dasar</li>
-                            <li>Konsisten posting 3-4x/minggu</li>
-                            <li>Gunakan trending sounds</li>
-                            <li>Buat hook menarik 3 detik</li>
-                            <li>Gunakan caption dengan CTA</li>
+                            <li><a href="#">Pelajari editing dasar</a></li>
+                            <li><a href="#">Konsisten posting 3-4x/minggu</a></li>
+                            <li><a href="#">Gunakan trending sounds</a></li>
+                            <li><a href="#">Buat hook menarik 3 detik</a></li>
+                            <li><a href="#">Gunakan caption dengan CTA</a></li>
                         </ul>
                     </div>
                     
-                    <div class="level-section">
-                        <div class="level-title">Menengah (1K-10K Followers)</div>
-                        <ul class="tips-list">
-                            <li>Investasikan ring light</li>
-                            <li>Gunakan aplikasi editing</li>
-                            <li>Kembangkan signature style</li>
-                            <li>Buat konten series</li>
-                            <li>Kolaborasi dengan creator</li>
-                        </ul>
-                    </div>
+                    
                 </div>
                 
                 <div class="tips-category">
-                    <h3 style="margin-top: 0; margin-bottom: 1rem; display: flex; align-items: center;">
-                        <i class="fas fa-broadcast-tower" style="margin-right: 8px;"></i> Tips Live Streaming
-                    </h3>
+                    <h3><i class="fas fa-broadcast-tower"></i> Tips Live Streaming</h3>
                     
                     <div class="level-section">
-                        <div class="level-title">Pemula (0-10 Viewers)</div>
+                        <div class="level-title">LIVE STREAMING</div>
                         <ul class="tips-list">
-                            <li>Durasi pendek 15-30 menit</li>
-                            <li>Siapkan 3-5 topik</li>
-                            <li>Interaksi personal</li>
-                            <li>Pencahayaan natural</li>
-                            <li>Audio jelas tanpa noise</li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7543566359351840007">Live harus ngapain</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7543565422713801992">Cara dapat gift</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7543564208315616530">Cara jago live</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7543558372323282183">Cara punya tombol live</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7555783448468753672">Rahasia kreator sukses</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7556522436519267585">Eksplor fitur live</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7556529225126137108">Rahasia bikin live seru & interaktif</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7556906509922209045">Cara bikin live profesional</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7556907329850035474">Resep bikin penonton beta</a></li>
+                            <li><a href="https://www.tiktok.com/@tiktokliveid/video/7556907636990430484">Rahasia biar kontenmu fyp</a></li>
                         </ul>
                     </div>
                     
-                    <div class="level-section">
-                        <div class="level-title">Menengah (10-50 Viewers)</div>
-                        <ul class="tips-list">
-                            <li>Durasi 45-60 menit</li>
-                            <li>Siapkan segment aktivitas</li>
-                            <li>Gunakan Q&A & Polling</li>
-                            <li>Investasikan ring light</li>
-                            <li>Gunakan microphone</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Additional level sections -->
-            <div class="tips-container" style="margin-top: 1rem;">
-                <div class="tips-category">
-                    <div class="level-section">
-                        <div class="level-title">Advanced (10K-100K Followers)</div>
-                        <ul class="tips-list">
-                            <li>Content strategy 30 hari</li>
-                            <li>Microphone eksternal</li>
-                            <li>Konten pillar evergreen</li>
-                            <li>Storytelling advanced</li>
-                            <li>Konten panjang 3+ menit</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="tips-category">
-                    <div class="level-section">
-                        <div class="level-title">Advanced (50-200 Viewers)</div>
-                        <ul class="tips-list">
-                            <li>Format live unik</li>
-                            <li>Kolaborasi live</li>
-                            <li>Green screen</li>
-                            <li>Giveaway kecil</li>
-                            <li>Strategi gifting</li>
-                        </ul>
-                    </div>
+        
                 </div>
             </div>
         </section>
