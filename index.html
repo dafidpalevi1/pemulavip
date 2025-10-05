@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP Agency - Panduan TikTok untuk Pemula</title>
+    <style>
+        :root {
+            --primary: #ff0050;
+            --primary-light: #ff3373;
+            --secondary: #00f2ea;
+            --dark: #121212;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --gray-light: #e9ecef;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 2.8rem;
+        }
+        
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        /* Navigation */
+        .nav-container {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        /* Main Content Styles */
+        main {
+            padding: 3rem 0;
+        }
+        
+        section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+        }
+        
+        h2 i {
+            margin-right: 12px;
+            font-size: 1.6rem;
+        }
+        
+        /* Larangan TikTok - Perbaikan Posisi Judul */
+        .prohibited-section {
+            margin-bottom: 2rem;
+        }
+        
+        .prohibited-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .prohibited-section h3 {
+            color: var(--primary);
+            margin: 0 0 1rem 0;
+            font-size: 1.4rem;
+            padding: 12px 15px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .prohibited-section h3 i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Two Column Layout */
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+        
+        .column {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .prohibited-list, .suggestion-list {
+            list-style-type: none;
+        }
+        
+        .prohibited-list li, .suggestion-list li {
+            padding: 14px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .prohibited-list li:last-child, .suggestion-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .prohibited-list li::before {
+            content: "❌";
+            margin-right: 15px;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .suggestion-list li::before {
+            content: "✅";
+            margin-right: 15px;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        /* Tips Section */
+        .tips-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+        
+        .tips-category {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            padding: 1.8rem;
+            border-left: 4px solid var(--primary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .tips-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .tips-list {
+            list-style-type: none;
+        }
+        
+        .tips-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .tips-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .tips-list li::before {
+            content: "💡";
+            margin-right: 12px;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .level-section {
+            margin-bottom: 2.2rem;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .level-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .level-title {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 18px;
+            border-radius: 8px;
+            margin-bottom: 1.2rem;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        /* Saran Section - Improved Layout */
+        .saran-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .saran-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        
+        .saran-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .saran-card h3 {
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .saran-card h3 i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .saran-card ul {
+            list-style-type: none;
+            margin-top: 1rem;
+        }
+        
+        .saran-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .saran-card li:last-child {
+            border-bottom: none;
+        }
+        
+        .saran-card li::before {
+            content: "✓";
+            margin-right: 10px;
+            color: var(--primary);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 3.5rem 2rem;
+            border-radius: 12px;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .cta-section p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .cta-section .btn {
+            background-color: white;
+            color: var(--primary);
+            margin-top: 1.8rem;
+            font-size: 1.1rem;
+            padding: 14px 35px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 0;
+            margin-top: 3rem;
+        }
+        
+        footer p {
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 1.2rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .two-columns {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .column {
+                margin-bottom: 1.5rem;
+            }
+            
+            .tips-container {
+                grid-template-columns: 1fr;
+                gap: 1.8rem;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+            }
+            
+            nav a {
+                margin: 0.5rem;
+                font-size: 0.9rem;
+            }
+            
+            section {
+                padding: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .saran-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            header {
+                padding: 2rem 0;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            .level-section {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-crown logo-icon"></i>
+                VIP Agency
+            </div>
+            <h1>Panduan Lengkap untuk Pemula TikTok</h1>
+            <p>Selamat datang di VIP Agency! Berikut adalah panduan penting untuk memulai perjalanan TikTok Anda dengan benar dan menghindari pelanggaran platform.</p>
+            <a href="#join" class="btn">Bergabung Sekarang</a>
+        </div>
+    </header>
+    
+    <div class="nav-container">
+        <nav class="container">
+            <a href="#prohibited">Larangan TikTok</a>
+            <a href="#suggestions">Saran Anggota Baru</a>
+            <a href="#tips">Tips Video & Live</a>
+            <a href="#join">Bergabung</a>
+        </nav>
+    </div>
+    
+    <main class="container">
+        <section id="prohibited">
+            <h2><i class="fas fa-ban"></i> Hal-Hal yang Dilarang di TikTok</h2>
+            
+            <div class="two-columns">
+                <div class="column">
+                    <div class="prohibited-section">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Konten Tidak Pantas & Berbahaya</h3>
+                        <ul class="prohibited-list">
+                            <li>Konten seksual eksplisit atau aktivitas seksual</li>
+                            <li>Eksploitasi seksual terhadap anak-anak</li>
+                            <li>Konten yang menggambarkan atau mempromosikan kekerasan</li>
+                            <li>Perundungan (bullying) dan pelecehan</li>
+                            <li>Konten yang mempromosikan gangguan makan atau perilaku berbahaya</li>
+                            <li>Konten yang mengandung ujaran kebencian</li>
+                            <li>Konten yang mendiskriminasi berdasarkan ras, agama, gender, dll</li>
+                            <li>Konten yang mengancam keselamatan publik</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="prohibited-section">
+                        <h3><i class="fas fa-gavel"></i> Konten yang Melanggar Hukum</h3>
+                        <ul class="prohibited-list">
+                            <li>Konten yang mempromosikan aktivitas ilegal</li>
+                            <li>Konten yang mengandung ancaman kekerasan</li>
+                            <li>Konten yang melanggar hak kekayaan intelektual</li>
+                            <li>Konten penipuan atau scam</li>
+                            <li>Konten yang mempromosikan perjudian</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="column">
+                    <div class="prohibited-section">
+                        <h3><i class="fas fa-user-secret"></i> Konten Spam & Manipulasi</h3>
+                        <ul class="prohibited-list">
+                            <li>Spam komentar atau pesan</li>
+                            <li>Manipulasi engagement (like, share, comment)</li>
+                            <li>Akun bot atau aktivitas otomatis</li>
+                            <li>Penyalahgunaan hashtag</li>
+                            <li>Konten duplikat berulang</li>
+                            <li>Impersonasi (meniru identitas orang lain)</li>
+                            <li>Menyebutkan media sosial lain berulang-ulang</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="prohibited-section">
+                        <h3><i class="fas fa-eye-slash"></i> Konten Sensitif & Tidak Sesuai</h3>
+                        <ul class="prohibited-list">
+                            <li>Konten yang menampilkan merokok atau penggunaan tembakau</li>
+                            <li>Konten yang menampilkan konsumsi alkohol berlebihan</li>
+                            <li>Konten yang menampilkan penggunaan narkoba</li>
+                            <li>Konten yang menampilkan benda tajam atau senjata</li>
+                            <li>Konten yang menampilkan hewan disembelih atau disakiti</li>
+                            <li>Konten yang menampilkan anak kecil menangis</li>
+                            <li>Konten tanpa busana atau tidak pantas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="suggestions">
+            <h2><i class="fas fa-lightbulb"></i> Saran Detail untuk Anggota Baru</h2>
+            
+            <div class="saran-grid">
+                <div class="saran-card">
+                    <h3><i class="fas fa-user-plus"></i> Persiapan Awal</h3>
+                    <ul>
+                        <li>Buat akun TikTok dengan foto profil yang jelas</li>
+                        <li>Pilih username yang mudah diingat dan relevan</li>
+                        <li>Tulis bio yang menjelaskan siapa Anda dan konten Anda</li>
+                        <li>Pelajari platform TikTok selama 1-2 minggu</li>
+                        <li>Pahami budaya dan tren yang sedang populer</li>
+                        <li>Tentukan niche yang sesuai dengan minat Anda</li>
+                    </ul>
+                </div>
+                
+                <div class="saran-card">
+                    <h3><i class="fas fa-video"></i> Strategi Konten</h3>
+                    <ul>
+                        <li>Fokus pada kualitas daripada kuantitas</li>
+                        <li>Gunakan wajah dan suara sendiri untuk keaslian</li>
+                        <li>Buat konten yang memberikan nilai tambah</li>
+                        <li>Ikuti tren dengan sentuhan kreatif pribadi</li>
+                        <li>Konsisten dengan niche yang dipilih</li>
+                        <li>Analisis kompetitor di niche Anda</li>
+                    </ul>
+                </div>
+                
+                <div class="saran-card">
+                    <h3><i class="fas fa-chart-line"></i> Optimasi & Engagement</h3>
+                    <ul>
+                        <li>Gunakan kombinasi hashtag strategis</li>
+                        <li>Buat caption yang menarik dan memicu interaksi</li>
+                        <li>Balas semua komentar dalam 24 jam pertama</li>
+                        <li>Manfaatkan fitur Duet, Stitch, Q&A, dan Polling</li>
+                        <li>Analisis performa konten dengan TikTok Analytics</li>
+                        <li>Kolaborasi dengan creator lain di niche serupa</li>
+                    </ul>
+                </div>
+                
+                <div class="saran-card">
+                    <h3><i class="fas fa-broadcast-tower"></i> Strategi Live Streaming</h3>
+                    <ul>
+                        <li>Persiapkan konten live dengan matang sebelumnya</li>
+                        <li>Promosikan jadwal live streaming di video sebelumnya</li>
+                        <li>Pastikan koneksi internet stabil dan pencahayaan baik</li>
+                        <li>Sapa setiap penonton yang masuk dengan nama mereka</li>
+                        <li>Jaga interaksi dua arah dengan ajukan pertanyaan</li>
+                        <li>Durasi optimal live streaming 45-90 menit</li>
+                    </ul>
+                </div>
+                
+                <div class="saran-card">
+                    <h3><i class="fas fa-tools"></i> Peralatan & Persiapan</h3>
+                    <ul>
+                        <li>Gunakan smartphone dengan kamera yang bagus</li>
+                        <li>Investasikan pada tripod untuk stabilitas video</li>
+                        <li>Pastikan pencahayaan cukup, natural atau ring light</li>
+                        <li>Gunakan mikrophone eksternal untuk kualitas audio</li>
+                        <li>Siapkan background yang rapi dan menarik</li>
+                        <li>Download aplikasi editing seperti CapCut atau InShot</li>
+                    </ul>
+                </div>
+                
+                <div class="saran-card">
+                    <h3><i class="fas fa-calendar-alt"></i> Konsistensi & Jadwal</h3>
+                    <ul>
+                        <li>Buat jadwal konten yang realistis dan konsisten</li>
+                        <li>Posting 3-4 kali per minggu untuk pemula</li>
+                        <li>Upload VT 5-10 menit sebelum live streaming</li>
+                        <li>Gunakan waktu posting ketika audiens paling aktif</li>
+                        <li>Rencanakan konten untuk minggu depan</li>
+                        <li>Evaluasi performa mingguan dan sesuaikan strategi</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="tips">
+            <h2><i class="fas fa-graduation-cap"></i> Tips Video & Live TikTok</h2>
+            
+            <div class="tips-container">
+                <div class="tips-category">
+                    <h3 style="margin-top: 0; margin-bottom: 1.5rem; display: flex; align-items: center;">
+                        <i class="fas fa-video" style="margin-right: 10px;"></i> Tips Video TikTok
+                    </h3>
+                    
+                    <div class="level-section">
+                        <div class="level-title">Tahap Pemula (0-1.000 Followers)</div>
+                        <ul class="tips-list">
+                            <li>Pelajari dasar-dasar editing di aplikasi TikTok</li>
+                            <li>Fokus pada konsistensi posting (3-4x/minggu)</li>
+                            <li>Gunakan trending sounds yang relevan dengan niche</li>
+                            <li>Buat hook yang menarik dalam 3 detik pertama</li>
+                            <li>Gunakan caption sederhana dengan CTA</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="level-section">
+                        <div class="level-title">Tahap Menengah (1.000-10.000 Followers)</div>
+                        <ul class="tips-list">
+                            <li>Investasikan pada ring light atau pencahayaan</li>
+                            <li>Mulai gunakan aplikasi editing eksternal</li>
+                            <li>Kembangkan signature style atau ciri khas</li>
+                            <li>Buat konten series atau berkelanjutan</li>
+                            <li>Kolaborasi dengan creator dengan audience serupa</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="level-section">
+                        <div class="level-title">Tahap Advanced (10.000-100.000 Followers)</div>
+                        <ul class="tips-list">
+                            <li>Kembangkan content strategy 30 hari ke depan</li>
+                            <li>Investasikan pada microphone eksternal</li>
+                            <li>Buat konten pillar yang evergreen</li>
+                            <li>Implementasi storytelling advanced</li>
+                            <li>Eksperimen dengan format konten panjang (3+ menit)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="level-section">
+                        <div class="level-title">Tahap Expert (100.000+ Followers)</div>
+                        <ul class="tips-list">
+                            <li>Kembangkan personal brand di luar TikTok</li>
+                            <li>Buat konten viral dengan strategic planning</li>
+                            <li>Bangun team kecil untuk produksi konten</li>
+                            <li>Diversifikasi platform (Instagram, YouTube)</li>
+                            <li>Negosiasi sponsorship dengan rate profesional</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tips-category">
+                    <h3 style="margin-top: 0; margin-bottom: 1.5rem; display: flex; align-items: center;">
+                        <i class="fas fa-broadcast-tower" style="margin-right: 10px;"></i> Tips Live Streaming
+                    </h3>
+                    
+                    <div class="level-section">
+                        <div class="level-title">Tahap Pemula (0-10 Viewers)</div>
+                        <ul class="tips-list">
+                            <li>Mulai dengan durasi pendek (15-30 menit)</li>
+                            <li>Siapkan 3-5 topik pembicaraan sebelum live</li>
+                            <li>Fokus pada interaksi personal dengan setiap viewer</li>
+                            <li>Gunakan pencahayaan natural yang baik</li>
+                            <li>Pastikan audio jelas dan tanpa noise</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="level-section">
+                        <div class="level-title">Tahap Menengah (10-50 Viewers)</div>
+                        <ul class="tips-list">
+                            <li>Tingkatkan durasi live menjadi 45-60 menit</li>
+                            <li>Siapkan segment atau aktivitas selama live</li>
+                            <li>Gunakan fitur Q&A dan Polling</li>
+                            <li>Investasikan ring light untuk pencahayaan konsisten</li>
+                            <li>Gunakan microphone eksternal untuk kualitas audio</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="level-section">
+                        <div class="level-title">Tahap Advanced (50-200 Viewers)</div>
+                        <ul class="tips-list">
+                            <li>Kembangkan format live yang unik dan signature</li>
+                            <li>Kolaborasi live dengan creator lain</li>
+                            <li>Gunakan green screen untuk visual yang menarik</li>
+                            <li>Siapkan giveaway kecil untuk dorong engagement</li>
+                            <li>Gunakan fitur gifting dengan strategi</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="level-section">
+                        <div class="level-title">Tahap Expert (200+ Viewers)</div>
+                        <ul class="tips-list">
+                            <li>Produksi live streaming seperti acara TV</li>
+                            <li>Gunakan graphics dan overlay profesional</li>
+                            <li>Host live event dengan ticketing atau donation</li>
+                            <li>Kolaborasi dengan brand untuk sponsored live</li>
+                            <li>Gunakan multi-platform streaming</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="join" class="cta-section">
+            <h2>Siap Bergabung dengan VIP Agency?</h2>
+            <p>Jangan lewatkan kesempatan untuk berkembang bersama komunitas creator TikTok terbaik. Dapatkan panduan eksklusif, dukungan komunitas, dan akses ke peluang monetisasi.</p>
+            <a href="#" class="btn" id="joinBtn">Daftar Sekarang</a>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 VIP Agency. Semua hak dilindungi.</p>
+            <p>Ikuti kami di media sosial:</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript untuk interaksi sederhana
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animasi tombol join
+            const joinBtn = document.getElementById('joinBtn');
+            
+            joinBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Terima kasih atas minat Anda! Tim kami akan segera menghubungi Anda untuk proses pendaftaran VIP Agency.');
+                
+                // Simulasi pengiriman form
+                setTimeout(function() {
+                    alert('Pendaftaran berhasil! Silakan periksa email Anda untuk langkah selanjutnya.');
+                }, 1000);
+            });
+            
+            // Efek scroll halus untuk semua link anchor
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Highlight nav link saat di-scroll
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            window.addEventListener('scroll', function() {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if(pageYOffset >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if(link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
